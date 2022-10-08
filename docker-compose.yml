@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  postgres:
+    container_name: DUDNIKOV_206
+    image: postgres:14.5
+    environment:
+          POSTGRES_DB: DUDNIKOV_206
+          POSTGRES_USER: DUDNIKOV_206
+          POSTGRES_PASSWORD: DUDNIKOV_206
+          PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      - ./docker/db/scripts:/docker-entrypoint-initdb.d
+      - ./dz:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
